@@ -1,0 +1,72 @@
+$font: "Inter", sans-serif;
+
+// ALGUMAS DEFINIÇÔES
+
+// CORES QUE REPETEM COM FREQUÊNCIA
+$preto: #000;
+$branco: #fff;
+
+// Z-INDEX
+$z-index: (
+  cookies-banner: 1000,
+  menu-aberto: 900,
+  sanduba: 990,
+  barra-topo: 990,
+  botao-header: 990,
+  banner-home-wrapper: 800,
+  pattern-banner-home: 810,
+  titulo-accordion: 500,
+  text-content: 100,
+  banner-img: 100,
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+// FLEX CENTER
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// BREAKPOINTS
+@mixin xs {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin xXl {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+     
+// TRANSITION
+@mixin transition-ease {
+  transition: all 0.5s ease-in-out;
+}

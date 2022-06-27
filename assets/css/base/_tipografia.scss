@@ -1,0 +1,117 @@
+// TRANSFORMAR PARA PX PARA REM
+@function toRem($px) {
+  @return ($px / 16) + rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  &:hover {
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+// FONTS SIZE
+.font12 {
+  font-size: toRem(12);
+}
+
+.font13 {
+  font-size: toRem(13);
+}
+
+.font14 {
+  font-size: toRem(14);
+}
+
+.font16 {
+  font-size: toRem(16);
+}
+
+.font17 {
+  font-size: toRem(17);
+}
+
+.font18 {
+  font-size: toRem(18);
+}
+
+.font20 {
+  font-size: toRem(20);
+}
+
+.font23 {
+  font-size: toRem(23);
+}
+
+.font24 {
+  font-size: toRem(24);
+}
+
+.font29 {
+  font-size: toRem(29);
+}
+
+.font33 {
+  font-size: toRem(33);
+}
+
+.font35 {
+  font-size: toRem(35);
+}
+
+.font37 {
+  font-size: toRem(37);
+}
+
+// FONT WEIGHT
+.fw200 {
+  font-weight: 200;
+}
+
+.fw300 {
+  font-weight: 300;
+}
+
+.fw400 {
+  font-weight: 400;
+}
+
+.fw500 {
+  font-weight: 500;
+}
+
+.fw600 {
+  font-weight: 600;
+}
+
+.fw700 {
+  font-weight: 700;
+}
+
+.fw800 {
+  font-weight: 800;
+}
+
+.fw900 {
+  font-weight: 900;
+}
+
+// FONT FAMILY
+.font-inter {
+  font-family: "Inter";
+}
+
+.font-roboto {
+  font-family: "Roboto";
+}
+
+// ATALHOS
+.uppercase {
+  text-transform: uppercase;
+}

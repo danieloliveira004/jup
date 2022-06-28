@@ -1,0 +1,50 @@
+.footer {
+  color: $branco;
+  h5 {
+    font-size: toRem(20);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  h6 {
+    font-size: toRem(16);
+    font-weight: 700;
+    line-height: 25px;
+  }
+
+  ul a {
+    font-size: toRem(16);
+    font-weight: 400;
+    color: $branco;
+    line-height: 25px;
+    font-size: toRem(16);
+    font-weight: 400;
+  }
+}
+
+.container-flex-footer {
+  gap: toRem(60);
+  > div {
+    flex: 50%;
+  }
+}
+
+.certificacoes {
+  background: $fundo-claro;
+  border-radius: 20px;
+}
+
+.footer-app {
+  position: relative;
+}
+
+.whatsapp-footer {
+  position: absolute;
+  top: -32px;
+  left: 32px;
+}

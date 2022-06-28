@@ -5,6 +5,14 @@ $font: "Inter", sans-serif;
 // CORES QUE REPETEM COM FREQUÊNCIA
 $preto: #000;
 $branco: #fff;
+$laranja: #f07f3c;
+$azul: #31306c;
+$cinza: #565656;
+$roxo: #643a9b;
+
+$fundo-claro: #F1F1F1;
+
+$gradient: linear-gradient(90deg, #31306c -0.7%, #643a9b 47.21%, #f07f3c 98.21%);
 
 // Z-INDEX
 $z-index: (
@@ -60,12 +68,12 @@ $z-index: (
   }
 }
 
-@mixin xXl {
+@mixin xxl {
   @media (min-width: 1400px) {
     @content;
   }
 }
-     
+
 // TRANSITION
 @mixin transition-ease {
   transition: all 0.5s ease-in-out;

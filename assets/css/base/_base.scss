@@ -1,0 +1,116 @@
+// TRANSFORMAR PARA PX PARA REM
+@function toRem($px) {
+  @return ($px / 16) + rem;
+}
+
+// MAX WIDTH
+.max-width1920 {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.max-width924 {
+  max-width: 924px;
+  margin: 0 auto;
+}
+
+.centerd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alignCenter {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// FONT COLOR
+.text-branco {
+  color: $branco;
+}
+
+.text-laranja {
+  color: $laranja;
+}
+
+.text-azul {
+  color: $azul;
+}
+
+.text-cinza {
+  color: $cinza;
+}
+
+.text-roxo {
+  color: $roxo;
+}
+
+.text-depoimento {
+  color: #8b8b8b;
+}
+
+// BACKGROUND COLOR
+.background-branco {
+  background-color: $branco;
+}
+
+.background-laranja {
+  background-color: $laranja;
+}
+
+.background-azul {
+  background-color: $azul;
+}
+
+// BORDER LARANJA
+.border-laranja {
+  border: 3px solid $laranja;
+}
+
+// GRADIENT
+.gradient {
+  background: $gradient;
+}
+
+// BUTTON
+.button,
+.button-circle {
+  display: flex;
+  width: fit-content;
+  border-radius: 100px;
+  padding: toRem(12) toRem(28);
+}
+
+.button-circle {
+  padding: toRem(12);
+  transition: all 0.5s ease-in-out;
+
+  &.hide {
+    background: $laranja;
+  }
+}
+
+// BOX SHADOW
+.button-shadow {
+  box-shadow: 0px 20px 20px rgba(22, 21, 67, 0.2);
+}
+
+// BORDER
+.border-top {
+  border-top: 2px solid #e2e2e2;
+}

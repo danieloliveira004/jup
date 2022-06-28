@@ -1,0 +1,266 @@
+@import "base/fonts";
+@import "base/variables";
+@import "base/normalize";
+
+@import "base/base";
+@import "base/tipografia";
+
+* {
+  outline: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font;
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none !important;
+}
+
+body {
+  background-color: $fundo-claro;
+}
+
+@import "header";
+@import "footer";
+
+// CONTAINER CATEGORIA
+.container-grid-categoria {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.container-categoria {
+  position: relative;
+  height: 538px;
+
+  &::after {
+    content: "";
+    z-index: 2;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(to top, rgba(22, 21, 67, 0.8) 9.9%, rgba(22, 21, 67, 0) 85.28%);
+  }
+}
+
+.conteudo-categoria {
+  width: 100%;
+  position: absolute;
+  bottom: toRem(40);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h4 {
+    max-width: 247px;
+    margin-bottom: 24px;
+  }
+
+  p {
+    position: relative;
+    display: block;
+    height: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    padding: 0 toRem(34);
+    opacity: 0;
+
+    &.hide {
+      opacity: 1;
+      padding-top: 24px;
+
+      max-height: 400px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 31px;
+      background: $laranja;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.img-categoria {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// CONTAINER CURSOS
+.container-grid-cursos {
+  display: grid;
+  gap: toRem(15);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.container-cursos {
+  width: 100%;
+  position: relative;
+  height: 490px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, rgba(22, 21, 67, 0.9) 0%, rgba(22, 21, 67, 0) 100%);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+}
+
+.vagas-ilimitadas {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.curso-online {
+  z-index: 3;
+  position: absolute;
+  top: toRem(12);
+  right: toRem(12);
+
+  span {
+    display: block;
+    padding: 0 toRem(15);
+    border-radius: 100px;
+    line-height: toRem(25);
+  }
+}
+
+.container-cursos-descricao {
+  z-index: 3;
+  position: absolute;
+  bottom: toRem(25);
+  right: toRem(25);
+  left: toRem(25);
+}
+
+.img-cursos {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+// CONTAINER CONHEÇA
+.letras-roxas {
+  span {
+    line-height: 19px;
+  }
+}
+
+.img-conheca {
+  position: relative;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  height: 506px;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, rgba(22, 21, 67, 0.9) 0%, rgba(22, 21, 67, 0) 100%);
+
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  img {
+    position: relative;
+    z-index: -1;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// METODOLOGIA
+.metodologia {
+  > div {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      padding-bottom: toRem(35);
+      height: 180px;
+    }
+  }
+}
+
+// DEPOIMENTOS
+.container-grid-depoimentos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.container-depoimento {
+  background: $branco;
+  box-shadow: 0px 20px 20px rgba(49, 48, 108, 0.2);
+  border-radius: 20px;
+}
+
+.header-depoimento {
+  position: relative;
+  padding-bottom: toRem(60);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 20px;
+    background: $gradient;
+    border-radius: 20px 20px 0 0;
+  }
+
+  img {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

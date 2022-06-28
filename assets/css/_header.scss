@@ -1,359 +1,144 @@
-Ag
-Font
-Inter
-Weight
-900
-Size
-37px
-Line height
-44.78px
-Ag
-Font
-Inter
-Weight
-400
-Size
-14px
-Line height
-14px
-Ag
-Font
-Inter
-Weight
-400
-Size
-14px
-Line height
-25px
-Ag
-Font
-Inter
-Weight
-300
-Size
-13px
-Line height
-58px
-Align
-Center
-Ag
-Font
-Roboto
-Weight
-500
-Size
-16px
-Line height
-18.75px
-Align
-Right
-Ag
-Font
-Inter
-Weight
-400
-Size
-18px
-Line height
-25px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-800
-Size
-20px
-Line height
-24px
-Align
-Center
-Ag
-Font
-Roboto
-Weight
-500
-Size
-18px
-Line height
-21.09px
-Ag
-Font
-Inter
-Weight
-700
-Size
-35px
-Line height
-42.36px
-Ag
-Font
-Inter
-Weight
-400
-Size
-17px
-Line height
-21px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-900
-Size
-37px
-Line height
-58px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-700
-Size
-20px
-Line height
-24.2px
-Align
-Center
-Ag
-Font
-Roboto
-Weight
-700
-Size
-16px
-Line height
-18.75px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-400
-Size
-24px
-Line height
-29.05px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-700
-Size
-14px
-Line height
-16.94px
-Ag
-Font
-Inter
-Weight
-700
-Size
-35px
-Line height
-44px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-500
-Size
-24px
-Line height
-26px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-600
-Size
-20px
-Line height
-25px
-Ag
-Font
-Inter
-Weight
-600
-Size
-23px
-Line height
-25px
-Ag
-Font
-Roboto
-Weight
-500
-Size
-18px
-Line height
-21.09px
-Align
-Center
-Ag
-Font
-Roboto
-Weight
-400
-Size
-18px
-Line height
-21.09px
-Align
-Center
-Ag
-Font
-Roboto
-Weight
-500
-Size
-16px
-Line height
-31px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-700
-Size
-35px
-Line height
-58px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-900
-Size
-33px
-Line height
-32px
-Align
-Center
-Ag
-Font
-Roboto
-Weight
-500
-Size
-24px
-Line height
-28.13px
-Ag
-Font
-Roboto
-Weight
-500
-Size
-17px
-Line height
-19.92px
-Ag
-Font
-Inter
-Weight
-700
-Size
-35px
-Line height
-42.36px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-500
-Size
-17px
-Line height
-20.57px
-Ag
-Font
-Roboto
-Weight
-500
-Size
-24px
-Line height
-28.13px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-500
-Size
-12px
-Line height
-26px
-Letter
-44%
-Align
-Center
-Ag
-Font
-Roboto
-Weight
-700
-Size
-16px
-Line height
-18.75px
-Ag
-Font
-Inter
-Weight
-800
-Size
-29px
-Line height
-30px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-200
-Size
-35px
-Line height
-58px
-Align
-Center
-Ag
-Font
-Inter
-Weight
-400
-Size
-17px
-Line height
-20.57px
-Ag
-Font
-Inter
-Weight
-900
-Size
-17px
-Line height
-20.57px
+#cookie {
+  transform: translateY(-100%);
+  transition: all 0.4s ease-in-out;
+
+  &.hide {
+    transform: translateY(0);
+  }
+}
+
+.header {
+  position: relative;
+  height: calc(100vh - 100px);
+  min-height: 525px;
+  box-sizing: border-box;
+}
+
+.menu {
+  position: relative;
+  z-index: 5;
+}
+
+.title-header {
+  position: relative;
+  z-index: 5;
+  max-width: 735px;
+  margin: 2rem auto;
+
+  h1 {
+    line-height: 58px;
+  }
+
+  h2 {
+    display: block;
+    max-width: 488px;
+    margin: 0 auto;
+  }
+}
+
+.descer-pagina {
+  z-index: 5;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.5;
+
+  a {
+    color: $branco;
+    letter-spacing: 0.44em;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 107px;
+
+    background: $branco;
+
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// SWIPER
+.container-swiper-header {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-header {
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    position: relative;
+    img {
+      z-index: -1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 9px;
+    height: 9px;
+    border: 1px solid #ffffff;
+    background: transparent;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $branco;
+  }
+}
+
+.control-swiper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: toRem(25);
+  right: toRem(35);
+
+  z-index: 100;
+}
+
+.button-next,
+.button-prev {
+  display: block;
+  padding: 0.8rem 0.4rem;
+}
+
+.button-prev {
+  transform: scale(-1) translateY(-1px);
+}
+
+.pagination-header {
+  margin-right: 1rem;
+  .swiper-pagination-bullet {
+    margin: 0 0.8rem !important;
+  }
+}
+
+.swiper-wrapper {
+  > * {
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #31306c 0%, rgba(49, 48, 108, 0) 100%);
+
+      position: absolute;
+      top: 0;
+
+      z-index: 1;
+    }
+  }
+}

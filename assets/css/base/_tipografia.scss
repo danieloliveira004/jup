@@ -1,8 +1,3 @@
-// TRANSFORMAR PARA PX PARA REM
-@function toRem($px) {
-  @return ($px / 16) + rem;
-}
-
 html {
   font-size: 16px;
 }
@@ -69,6 +64,10 @@ a {
   font-size: toRem(37);
 }
 
+.font64 {
+  font-size: toRem(64);
+}
+
 // FONT WEIGHT
 .fw200 {
   font-weight: 200;
@@ -102,6 +101,15 @@ a {
   font-weight: 900;
 }
 
+// LINE HEIGHT
+.line17 {
+  line-height: toRem(17);
+}
+
+.line21 {
+  line-height: toRem(21);
+}
+
 // FONT FAMILY
 .font-inter {
   font-family: "Inter";
@@ -114,4 +122,15 @@ a {
 // ATALHOS
 .uppercase {
   text-transform: uppercase;
+}
+
+@mixin underline {
+  display: inline-block;
+  border-bottom: 1px solid;
+}
+
+// COR UNDERLINE
+.underline-branco {
+  @include underline;
+  color: $branco;
 }

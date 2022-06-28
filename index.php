@@ -164,113 +164,81 @@ include_once 'dados.php';
           <p class="font-roboto font24 fw500">Cursos estruturados para alavancar sua carreira</p>
         </div>
         <div class="container-grid-cursos">
-          <!-- CARD -->
-          <div class="container-cursos">
-            <!-- IMG CARD -->
-            <img class="img-cursos" src="assets/images/terapia-cognitivo.png" alt="Terapia Cognitivo">
-            <!-- IMG VAGAS LIMITADAS -->
-            <div class="vagas-ilimitadas">
-              <img src="assets/images/vagas-limitadas.svg" alt="Vagas limitadas">
-            </div>
-            <!-- CURSO ONLINE -->
-            <div class="curso-online">
-              <span class="font12 fw800 text-azul background-branco">CURSO ONLINE</span>
-            </div>
-            <!-- DESCRIÇÃO -->
-            <div class="container-cursos-descricao text-branco">
-              <!-- TITULO -->
-              <h4 class="font23 fw600">Terapia cognitivo comportamental</h4>
-              <!-- ESTRELAS -->
-              <div class="alignCenter gap-1 pb-3">
-                <img src="assets/images/icon/estrela.svg" alt="estrela">
-                <img src="assets/images/icon/estrela.svg" alt="estrela">
-                <img src="assets/images/icon/estrela.svg" alt="estrela">
-                <img src="assets/images/icon/estrela-meia.svg" alt="estrela">
-                <span>
-                  3,5
+          <?php foreach ($cursos as $curso) : ?>
+            <!-- CARD -->
+            <div class="container-cursos">
+              <!-- IMG CARD -->
+              <img class="img-cursos" src="assets/images/<?= $curso['image'] ?>" alt="Capa do Curso">
+              <?php if ($curso['vagas-ilimitadas']) : ?>
+                <!-- IMG VAGAS LIMITADAS -->
+                <div class="vagas-ilimitadas">
+                  <img src="assets/images/vagas-limitadas.svg" alt="Vagas limitadas">
+                </div>
+              <?php endif; ?>
+              <!-- CURSO ONLINE -->
+              <div class="curso-online">
+                <span class="font12 fw800 text-azul background-branco">
+                  <?php
+                  if ($curso['curso-online'])
+                    echo 'CURSO ONLINE';
+                  else
+                    echo 'CURSO PRESENCIAL';
+                  ?>
                 </span>
               </div>
-              <!-- ADICIONAL -->
-              <div class="font17 fw500 alignCenter gap-3 pb-2">
-                <!-- CERTIFICADO -->
-                <span class="alignCenter gap-1">
-                  <img src="assets/images/icon/icon-certificado.svg" alt="Icon Cerficiado">
-                  <span>Certificado 4h</span>
-                </span>
-                <!-- POR ONDE A AULA -->
-                <span class="alignCenter gap-1">
-                  <img src="assets/images/icon/icon-gravador.svg" alt="Icon Gravador">
-                  <span>Zoom</span>
-                </span>
-              </div>
-              <!-- VALOR -->
-              <div>
-                <span class="font17 fw400 alignCenter gap-1">
-                  <img src="assets/images/icon/icon-valor.svg" alt="Icon Valor">
-                  <span>R$ <strong class="fw900">99,90</strong></span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <!-- CARD -->
-          <div class="container-cursos">
-            <!-- IMG CARD -->
-            <img class="img-cursos" src="assets/images/terapia-cognitivo.png" alt="Terapia Cognitivo">
-            <!-- IMG VAGAS LIMITADAS -->
-            <div class="vagas-ilimitadas">
-              <img src="assets/images/vagas-limitadas.svg" alt="Vagas limitadas">
-            </div>
-            <!-- CURSO ONLINE -->
-            <div class="curso-online">
-              <span class="font12 fw800 text-azul background-branco">CURSO ONLINE</span>
-            </div>
-            <!-- DESCRIÇÃO -->
-            <div class="container-cursos-descricao text-branco">
-              <!-- TITULO -->
-              <h4 class="font23 fw600">Terapia cognitivo comportamental</h4>
-              <!-- ESTRELAS -->
-              <div class="alignCenter gap-1 pb-3">
-                <img src="assets/images/icon/estrela.svg" alt="estrela">
-                <img src="assets/images/icon/estrela.svg" alt="estrela">
-                <img src="assets/images/icon/estrela.svg" alt="estrela">
-                <img src="assets/images/icon/estrela-meia.svg" alt="estrela">
-                <span>
-                  3,5
-                </span>
-              </div>
-              <!-- ADICIONAL -->
-              <div class="space-between gap-1">
-                <div class="font17 fw500">
-                  <!-- CERTIFICADO -->
-                  <span class="alignCenter gap-1">
-                    <img src="assets/images/icon/icon-certificado.svg" alt="Icon Cerficiado">
-                    <span>Certificado 4h</span>
-                  </span>
-                  <span class="font17 fw400 alignCenter gap-1">
-                    <img src="assets/images/icon/icon-valor.svg" alt="Icon Valor">
-                    <span>R$ <strong class="fw900">99,90</strong></span>
+              <!-- DESCRIÇÃO -->
+              <div class="container-cursos-descricao text-branco">
+                <!-- TITULO -->
+                <h4 class="font23 fw600"><?= $curso['titulo'] ?></h4>
+                <!-- ESTRELAS -->
+                <div class="alignCenter gap-1 pb-3">
+                  <?php
+                  for ($i = $curso['classificacao']; $i >= 1; $i--)
+                    echo '<img src="assets/images/icon/estrela.svg" alt="estrela">';
+                  if ($i > 0)
+                    echo '<img src="assets/images/icon/estrela-meia.svg" alt="estrela">';
+                  ?>
+                  <span>
+                    <?= $curso['classificacao'] ?>
                   </span>
                 </div>
-                <div class="">
-                  <!-- POR ONDE A AULA -->
-                  <!-- <span class="alignCenter gap-1">
-                  <img src="assets/images/icon/icon-gravador.svg" alt="Icon Gravador">
-                  <span>Zoom</span>
-                </span> -->
-                  <!-- LOCALIDADE -->
-                  <span class="alignCenter gap-1">
-                    <img src="assets/images/icon/icon-localidade.svg" alt="Icon Localidade">
-                    SP
-                  </span>
-                  <!-- DATA -->
-                  <span class="alignCenter gap-1">
-                    <img src="assets/images/icon/icon-data.svg" alt="Icon Data">
-                    27/06/2022
-                  </span>
+                <!-- ADICIONAL -->
+                <div class="d-flex gap-3">
+                  <div class="font17 fw500">
+                    <!-- CERTIFICADO -->
+                    <span class="alignCenter gap-1 pb-2">
+                      <img src="assets/images/icon/icon-certificado.svg" alt="Icon Cerficiado">
+                      <span>Certificado <?= $curso['certificado'] ?>h</span>
+                    </span>
+                    <span class="font17 fw400 alignCenter gap-1">
+                      <img src="assets/images/icon/icon-valor.svg" alt="Icon Valor">
+                      <span>R$ <strong class="fw900"><?= $curso['preco'] ?></strong></span>
+                    </span>
+                  </div>
+                  <div>
+                    <?php if ($curso['curso-online']) { ?>
+                      <!-- POR ONDE A AULA -->
+                      <span class="alignCenter gap-1 pb-2">
+                        <img src="assets/images/icon/icon-gravador.svg" alt="Icon Gravador">
+                        <span><?= $curso['plataforma'] ?></span>
+                      </span>
+                    <?php } else { ?>
+                      <!-- LOCALIDADE -->
+                      <span class="alignCenter gap-1 pb-2">
+                        <img src="assets/images/icon/icon-localidade.svg" alt="Icon Localidade">
+                        <?= $curso['localidade'] ?>
+                      </span>
+                      <!-- DATA -->
+                      <span class="alignCenter gap-1">
+                        <img src="assets/images/icon/icon-data.svg" alt="Icon Data">
+                        <?= $curso['data'] ?>
+                      </span>
+                    <?php } ?>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <?php endforeach;  ?>
         </div>
         <!-- VER TODOS OS CURSOR -->
         <div class="centerd  py-5">

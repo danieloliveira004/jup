@@ -10,9 +10,10 @@ $categorias = [
 $cursos = [
   [
     'titulo' => 'Terapia cognitivo comportamental',
+    'image' => 'terapia-cognitivo.png',
     'certificado' => 4,
     'plataforma' => 'Zoom',
-    'classficacao' => 4.5,
+    'classificacao' => 4.5,
     'preco' => 350.99,
     'vagas-ilimitadas' => true,
     'curso-online' => true,
@@ -21,9 +22,10 @@ $cursos = [
   ],
   [
     'titulo' => 'Violência Doméstica - Protocolo de atendimento e acompanhamento',
+    'image' => 'violencia-domestica.png',
     'certificado' => 4,
     'plataforma' => 'Zoom',
-    'classficacao' => 5,
+    'classificacao' => 5,
     'preco' => 350.99,
     'vagas-ilimitadas' => true,
     'curso-online' => true,
@@ -32,9 +34,10 @@ $cursos = [
   ],
   [
     'titulo' => 'Violência Sexual Infanto-Juvenil',
+    'image' => 'violencia-sexual.png',
     'certificado' => 20,
     'plataforma' => null,
-    'classficacao' => 3.5,
+    'classificacao' => 3.5,
     'preco' => 59.90,
     'vagas-ilimitadas' => true,
     'curso-online' => false,
@@ -43,9 +46,10 @@ $cursos = [
   ],
   [
     'titulo' => 'Raciocínio técnico em psicologia',
+    'image' => 'raciocionio-logico.png',
     'certificado' => 20,
     'plataforma' => null,
-    'classficacao' => 5,
+    'classificacao' => 5,
     'preco' => 350.99,
     'vagas-ilimitadas' => true,
     'curso-online' => true,

@@ -16,7 +16,7 @@
 
 .menu {
   position: relative;
-  z-index: 5;
+  z-index: 905;
 }
 
 .title-header {
@@ -86,17 +86,17 @@
       object-fit: cover;
     }
   }
+}
 
-  .swiper-pagination-bullet {
-    width: 9px;
-    height: 9px;
-    border: 1px solid #ffffff;
-    background: transparent;
-  }
+.swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+  border: 1px solid #ffffff;
+  background: transparent;
+}
 
-  .swiper-pagination-bullet-active {
-    background: $branco;
-  }
+.swiper-pagination-bullet-active {
+  background: $branco;
 }
 
 .control-swiper {
@@ -107,6 +107,23 @@
   right: toRem(35);
 
   z-index: 100;
+}
+
+@include md {
+  .control-swiper {
+    right: toRem(25);
+    left: toRem(25);
+
+    .button-prev {
+      order: -1;
+    }
+
+    .pagination-header {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
 
 .button-next,
@@ -139,6 +156,111 @@
       top: 0;
 
       z-index: 1;
+    }
+  }
+}
+
+.logo {
+  transition: all 1s ease-in-out;
+}
+
+// NAVBAR MENU
+.navbar-menu {
+  opacity: 0;
+  transition-delay: 1s;
+  transition: all 1s ease-in-out;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: -1;
+
+  &.hide {
+    @include z-index("menu-aberto");
+    opacity: 1;
+  }
+}
+
+.container-navbar {
+  display: flex;
+
+  text-align: right;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  div {
+    padding-right: toRem(98);
+    padding-top: 10rem;
+    height: 100vh;
+  }
+
+  a {
+    color: $branco;
+  }
+}
+
+.part1 {
+  width: 35%;
+  background: rgba(41, 40, 86, 0.99);
+  backdrop-filter: blur(10px);
+
+  font-size: toRem(18);
+  font-weight: 400;
+  line-height: 45px;
+}
+
+.part2 {
+  width: 65%;
+  background: linear-gradient(
+    90deg,
+    rgba(49, 48, 108, 0.99) -0.7%,
+    rgba(100, 58, 155, 0.99) 61.21%,
+    rgba(240, 127, 60, 0.99) 119.21%
+  );
+  backdrop-filter: blur(10px);
+  font-size: toRem(27);
+  font-weight: 400;
+  line-height: 51px;
+}
+
+.final-navbar {
+  display: none;
+  background: linear-gradient(0deg, #31306c 42.79%, rgba(49, 48, 108, 0) 250%);
+  backdrop-filter: blur(15px);
+  padding: toRem(20) 0;
+}
+
+@include lg {
+  .container-navbar {
+    flex-direction: column;
+
+    text-align: left;
+
+    div {
+      // padding: 0;
+      position: relative;
+      padding: 10rem toRem(30) 1rem toRem(30);
+      height: fit-content;
+      width: 100%;
+    }
+
+    .part1 {
+      padding-top: 1rem;
+    }
+
+    .part2 {
+      order: -1;
+      font-size: toRem(20);
+    }
+
+    .final-navbar {
+      padding: 1rem 0;
+      display: flex;
     }
   }
 }

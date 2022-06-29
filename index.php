@@ -16,11 +16,11 @@ include_once 'dados.php';
   <!-- BOOTSTRAP CSS -->
   <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
   <!-- SWIPER -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
   <!-- JQUERY -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -32,6 +32,7 @@ include_once 'dados.php';
 <body>
   <!-- INICIO HEADER -->
   <header class="header">
+
     <!-- COOKIES -->
     <div id="cookie" class="gradient fixed-top">
       <div class="container-fluid">
@@ -41,6 +42,46 @@ include_once 'dados.php';
       </div>
     </div>
     <!-- FIM COOKIES -->
+
+    <!-- MENU LINKS -->
+    <div class="navbar-menu">
+
+      <div class="container-navbar ">
+        <div class="part1">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">INSTITUCIONAL</a></li>
+            <li><a href="#">NOVIDADES</a></li>
+            <li><a href="#">MATERIAIS GRATUITOS</a></li>
+            <li><a href="#">DEPOIMENTOS</a></li>
+            <li><a href="#">CONTATO</a></li>
+          </ul>
+        </div>
+
+        <div class="part2">
+          <ul>
+            <li><a href="#">Cursos de Direito</a></li>
+            <li><a href="#">Cursos de Psicologia</a></li>
+            <li><a href="#">Cursos de Serviço Social</a></li>
+            <li><a href="#">Cursos Preparatórios</a></li>
+            <li><a href="#">Coaching e Inteligência Emocional</a></li>
+            <li><a href="#">Cursos Para sua Empresa</a></li>
+          </ul>
+        </div>
+
+        <div class="final-navbar centerd gap-2">
+          <!-- SEARCH -->
+          <button class="button-circle background-laranja">
+            <img src="assets/images/icon/lupa.svg" alt="Lupa">
+          </button>
+          <a href="#" class="button gap-2 text-branco background-laranja font16 fw600 whitespace-nowrap">
+            <img src="assets/images/icon/user.svg" alt="User">
+            Login | Criar conta
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
 
     <!-- SWIPER -->
     <div class="container-swiper-header">
@@ -75,7 +116,7 @@ include_once 'dados.php';
     <div class="menu container-fluid max-width1920">
       <div class="space-between pt-4">
         <!-- LOGO -->
-        <div>
+        <div class="logo">
           <a href="#">
             <img src="assets/images/logo.svg" alt="Logo">
           </a>
@@ -84,14 +125,14 @@ include_once 'dados.php';
         <div>
           <div class="alignCenter gap-5">
             <!-- SEARCH -->
-            <button class="button-circle background-laranja">
+            <button class="button-circle background-laranja d-none d-md-block">
               <img src="assets/images/icon/lupa.svg" alt="Lupa">
             </button>
-            <a href="#" class="button gap-2 text-branco background-laranja font16 fw600">
+            <a href="#" class="button gap-2 text-branco background-laranja font16 fw600 d-none d-md-block">
               <img src="assets/images/icon/user.svg" alt="User">
               Login | Criar conta
             </a>
-            <button class="button alignCenter gap-2 text-laranja background-branco font18 fw600">
+            <button id="button-burguer" class="button alignCenter gap-2 text-laranja background-branco font18 fw600">
               <img src="assets/images/icon/burguer.svg" alt="Burguer Menu">
               MENU
             </button>
@@ -117,7 +158,7 @@ include_once 'dados.php';
 
     <!-- FINAL HEADER -->
     <div>
-      <div class="descer-pagina">
+      <div class="descer-pagina d-none d-md-block">
         <a href="#main" class="font12 fw500 uppercase">DESCER PÁGINA</a>
       </div>
       <!-- CARROUSEl -->
@@ -131,7 +172,7 @@ include_once 'dados.php';
     <div class="container-fluid max-width1920">
       <!-- PRINCIPAIS CATEGORIAS   -->
       <div>
-        <div class="text-center text-branco max-width924 pt-5 pb-3">
+        <div class="text-center text-branco max-width924 pt-md-5 pb-3">
           <h3 class="font35 fw700 uppercase pt-3">Principais Categorias</h3>
           <p class="font-roboto font24 fw500  ">Acesse conteúdos da sua área, e experimente novos campos de atuação, expandindo as suas estratégias, técnicas e possibilidades de ingresso no mercado de trabalho</p>
         </div>
@@ -163,82 +204,95 @@ include_once 'dados.php';
           <h3 class="font35 fw700 uppercase pt-3">Principais Cursos</h3>
           <p class="font-roboto font24 fw500">Cursos estruturados para alavancar sua carreira</p>
         </div>
-        <div class="container-grid-cursos">
-          <?php foreach ($cursos as $curso) : ?>
-            <!-- CARD -->
-            <div class="container-cursos">
-              <!-- IMG CARD -->
-              <img class="img-cursos" src="assets/images/<?= $curso['image'] ?>" alt="Capa do Curso">
-              <?php if ($curso['vagas-ilimitadas']) : ?>
-                <!-- IMG VAGAS LIMITADAS -->
-                <div class="vagas-ilimitadas">
-                  <img src="assets/images/vagas-limitadas.svg" alt="Vagas limitadas">
-                </div>
-              <?php endif; ?>
-              <!-- CURSO ONLINE -->
-              <div class="curso-online">
-                <span class="font12 fw800 text-azul background-branco">
-                  <?php
-                  if ($curso['curso-online'])
-                    echo 'CURSO ONLINE';
-                  else
-                    echo 'CURSO PRESENCIAL';
-                  ?>
-                </span>
-              </div>
-              <!-- DESCRIÇÃO -->
-              <div class="container-cursos-descricao text-branco">
-                <!-- TITULO -->
-                <h4 class="font23 fw600"><?= $curso['titulo'] ?></h4>
-                <!-- ESTRELAS -->
-                <div class="alignCenter gap-1 pb-3">
-                  <?php
-                  for ($i = $curso['classificacao']; $i >= 1; $i--)
-                    echo '<img src="assets/images/icon/estrela.svg" alt="estrela">';
-                  if ($i > 0)
-                    echo '<img src="assets/images/icon/estrela-meia.svg" alt="estrela">';
-                  ?>
-                  <span>
-                    <?= $curso['classificacao'] ?>
-                  </span>
-                </div>
-                <!-- ADICIONAL -->
-                <div class="d-flex gap-3">
-                  <div class="font17 fw500">
-                    <!-- CERTIFICADO -->
-                    <span class="alignCenter gap-1 pb-2">
-                      <img src="assets/images/icon/icon-certificado.svg" alt="Icon Cerficiado">
-                      <span>Certificado <?= $curso['certificado'] ?>h</span>
-                    </span>
-                    <span class="font17 fw400 alignCenter gap-1">
-                      <img src="assets/images/icon/icon-valor.svg" alt="Icon Valor">
-                      <span>R$ <strong class="fw900"><?= $curso['preco'] ?></strong></span>
+        <!-- Swiper -->
+        <div class="swiper swiper-cursos">
+          <div class="swiper-wrapper">
+            <?php foreach ($cursos as $curso) : ?>
+              <div class="swiper-slide">
+                <!-- CARD -->
+                <div class="container-cursos">
+                  <!-- IMG CARD -->
+                  <img class="img-cursos" src="assets/images/<?= $curso['image'] ?>" alt="Capa do Curso">
+                  <?php if ($curso['vagas-ilimitadas']) : ?>
+                    <!-- IMG VAGAS LIMITADAS -->
+                    <div class="vagas-ilimitadas">
+                      <img src="assets/images/vagas-limitadas.svg" alt="Vagas limitadas">
+                    </div>
+                  <?php endif; ?>
+                  <!-- CURSO ONLINE -->
+                  <div class="curso-online">
+                    <span class="font12 fw800 text-azul background-branco">
+                      <?php
+                      if ($curso['curso-online'])
+                        echo 'CURSO ONLINE';
+                      else
+                        echo 'CURSO PRESENCIAL';
+                      ?>
                     </span>
                   </div>
-                  <div>
-                    <?php if ($curso['curso-online']) { ?>
-                      <!-- POR ONDE A AULA -->
-                      <span class="alignCenter gap-1 pb-2">
-                        <img src="assets/images/icon/icon-gravador.svg" alt="Icon Gravador">
-                        <span><?= $curso['plataforma'] ?></span>
+                  <!-- DESCRIÇÃO -->
+                  <div class="container-cursos-descricao text-branco">
+                    <!-- TITULO -->
+                    <h4 class="font23 fw600"><?= $curso['titulo'] ?></h4>
+                    <!-- ESTRELAS -->
+                    <div class="alignCenter gap-1 pb-3">
+                      <?php
+                      for ($i = $curso['classificacao']; $i >= 1; $i--)
+                        echo '<img src="assets/images/icon/estrela.svg" alt="estrela">';
+                      if ($i > 0)
+                        echo '<img src="assets/images/icon/estrela-meia.svg" alt="estrela">';
+                      ?>
+                      <span>
+                        <?= $curso['classificacao'] ?>
                       </span>
-                    <?php } else { ?>
-                      <!-- LOCALIDADE -->
-                      <span class="alignCenter gap-1 pb-2">
-                        <img src="assets/images/icon/icon-localidade.svg" alt="Icon Localidade">
-                        <?= $curso['localidade'] ?>
-                      </span>
-                      <!-- DATA -->
-                      <span class="alignCenter gap-1">
-                        <img src="assets/images/icon/icon-data.svg" alt="Icon Data">
-                        <?= $curso['data'] ?>
-                      </span>
-                    <?php } ?>
+                    </div>
+                    <!-- ADICIONAL -->
+                    <div class="d-flex gap-3">
+                      <div class="font17 fw500">
+                        <!-- CERTIFICADO -->
+                        <span class="alignCenter gap-1 pb-2">
+                          <img src="assets/images/icon/icon-certificado.svg" alt="Icon Cerficiado">
+                          <span>Certificado <?= $curso['certificado'] ?>h</span>
+                        </span>
+                        <span class="font17 fw400 alignCenter gap-1">
+                          <img src="assets/images/icon/icon-valor.svg" alt="Icon Valor">
+                          <span>R$ <strong class="fw900"><?= $curso['preco'] ?></strong></span>
+                        </span>
+                      </div>
+                      <div>
+                        <?php if ($curso['curso-online']) { ?>
+                          <!-- POR ONDE A AULA -->
+                          <span class="alignCenter gap-1 pb-2">
+                            <img src="assets/images/icon/icon-gravador.svg" alt="Icon Gravador">
+                            <span><?= $curso['plataforma'] ?></span>
+                          </span>
+                        <?php } else { ?>
+                          <!-- LOCALIDADE -->
+                          <span class="alignCenter gap-1 pb-2">
+                            <img src="assets/images/icon/icon-localidade.svg" alt="Icon Localidade">
+                            <?= $curso['localidade'] ?>
+                          </span>
+                          <!-- DATA -->
+                          <span class="alignCenter gap-1">
+                            <img src="assets/images/icon/icon-data.svg" alt="Icon Data">
+                            <?= $curso['data'] ?>
+                          </span>
+                        <?php } ?>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+            <?php endforeach;  ?>
+          </div>
+          <div class="control-swiper-cursos space-between">
+            <div class="button-next">
+              <img src="assets/images/icon/seta-cursos.svg" alt="Próximo">
             </div>
-          <?php endforeach;  ?>
+            <div class="button-prev">
+              <img src="assets/images/icon/seta-cursos.svg" alt="Anterior">
+            </div>
+          </div>
         </div>
         <!-- VER TODOS OS CURSOR -->
         <div class="centerd  py-5">
@@ -252,11 +306,11 @@ include_once 'dados.php';
   <!-- CONHEÇA JUSPSI -->
   <section class="py-5">
     <div class="container">
-      <div class="row text-cinza py-5">
-        <div class="col-6 img-conheca p-0 ">
+      <div class="row text-cinza py-md-5">
+        <div class="col-6 img-conheca p-0 d-none d-md-block">
           <img src="assets/images/transforme-sua-vida.png" alt="Transform sua Vida">
         </div>
-        <div class="col-6 p-5">
+        <div class="col-md-6 p-5">
           <div class="linha pb-5">
             <h3 class="font35 fw700 uppercase">Transforme sua vida ATRAVÉS dos cursos juspsi</h3>
             <!-- LINHA -->
@@ -283,7 +337,7 @@ include_once 'dados.php';
   <!-- FIM JUSPSI -->
 
   <!-- DIFERENÇA JUSPSI -->
-  <section class="gradient text-branco text-center py-5">
+  <section class="gradient text-branco text-center py-5 d-none d-md-block">
     <div class="container">
       <h3 class="font35 fw700 uppercase py-5">Diferenciais JUSPSI</h3>
       <div class="alignCenter gap-3 font18 fw400 metodologia pb-5">
@@ -313,36 +367,60 @@ include_once 'dados.php';
   <!-- FIM DIFERENÇA JUSPSI -->
 
   <!-- INICIO DEPOIMENTOS -->
-  <section class="py-5">
+  <section class="py-5 d-none d-md-block">
     <div class="container-fluid">
       <div class="pt-5">
-        <div class="pb-5 mb-3">
+        <div class="">
           <div class="text-cinza">
             <h4 class="font35 fw700 uppercase m-0">Depoimentos</h4>
             <p class="font-roboto font24 fw500">Opinião de nossos alunos sobre os cursos JUSPSI</p>
           </div>
-          <!-- CARROUSEL -->
         </div>
-        <div class="container-grid-depoimentos gap-3">
-          <!-- CARD -->
-          <div class="container-depoimento text-center">
-            <!-- HEDAER CARD -->
-            <div class="header-depoimento">
-              <img src="assets/images/depoimento1.png" alt="Imagem de Perfil">
-            </div>
-            <!-- CONTEUDO CARD -->
-            <div class="px-4 ">
-              <h5 class="font24 fw400 text-azul">laicmonteiro</h5>
-              <p class="font17 fw400 line17 text-depoimento">“Curso maravilhoso! Super recomendo! dias de muita troca e compartilhamento de conhecimento. Parabéns psicóloga Lane por ser essa pessoa tão humana e uma profissional de extrema competência. A psicologia agradece por ter você como representante da nossa categoria!”</p>
-            </div>
-            <!-- FOOTER CARD -->
-            <div class="centerd py-4 mx-4 border-top">
-              <a href="#" class="alignCenter gap-2">
-                <img src="assets/images/icon/icon-seta.svg" alt="Icon Seta">
-                <span class="font13 fw700 text-laranja">CURSO DE COACHING</span>
-              </a>
-            </div>
+        <!-- CARROUSEL -->
+        <!-- Swiper -->
+        <div class="swiper swiper-depoimentos">
+          <div class="swiper-wrapper">
+            <?php
+            for ($i = 0; $i < 2; $i++)
+              foreach ($depoimentos as $depoimento) : ?>
+              <div class="swiper-slide">
+                <!-- CARD -->
+                <div class="container-depoimento text-center">
+                  <!-- HEDAER CARD -->
+                  <div class="header-depoimento">
+                    <img src="assets/images/<?= $depoimento['image'] ?>" alt="Imagem de Perfil">
+                  </div>
+                  <!-- CONTEUDO CARD -->
+                  <div class="px-4 ">
+                    <h5 class="font24 fw400 text-azul pb-3"><?= $depoimento['nome'] ?></h5>
+                    <p class="font17 fw400 line17 text-depoimento"><?= $depoimento['depoimento'] ?></p>
+                  </div>
+                  <!-- FOOTER CARD -->
+                  <div class="footer-depoimento centerd py-4 mx-4 border-top">
+                    <a href="#" class="alignCenter gap-2">
+                      <img src="assets/images/icon/icon-seta.svg" alt="Icon Seta">
+                      <span class="font13 fw700 text-laranja uppercase"><?= $depoimento['curso'] ?></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
+          <div class="control-swiper-depoimentos">
+            <div class="swiper-pagination-depoimento"></div>
+
+            <div class="button-prev">
+              <img src="assets/images/icon/seta-swiper.svg" alt="Proximo Slide">
+            </div>
+            <div class="button-next">
+              <img src="assets/images/icon/seta-swiper.svg" alt="Proximo Slide">
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container-grid-depoimentos gap-3">
+
         </div>
       </div>
       <div class="py-5 centerd">
@@ -501,6 +579,31 @@ include_once 'dados.php';
       },
       mousewheel: true,
       keyboard: true,
+    });
+
+    // CURSOS
+    var swiper = new Swiper(".swiper-cursos", {
+      slidesPerView: 1.5,
+      spaceBetween: 15,
+      centeredSlides: false,
+      navigation: {
+        nextEl: ".button-prev ",
+        prevEl: ".button-next",
+      },
+    });
+
+    // DEPOIMENTOS
+    var swiper = new Swiper(".swiper-depoimentos", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination-depoimento",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".button-next ",
+        prevEl: ".button-prev",
+      }
     });
   </script>
 

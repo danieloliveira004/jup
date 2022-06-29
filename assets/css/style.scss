@@ -19,6 +19,11 @@ button {
   outline: none !important;
 }
 
+body,
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: $fundo-claro;
 }
@@ -202,7 +207,6 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(360deg, rgba(22, 21, 67, 0.9) 0%, rgba(22, 21, 67, 0) 100%);
-
     z-index: 2;
     position: absolute;
     top: 0;
@@ -219,6 +223,22 @@ body {
   }
 }
 
+.linha {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 80px;
+    background: $laranja;
+
+    position: absolute;
+    top: 8%;
+    left: -100px;
+  }
+}
+
 // METODOLOGIA
 .metodologia {
   > div {
@@ -232,13 +252,11 @@ body {
   }
 }
 
-// DEPOIMENTOS
-.container-grid-depoimentos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
+// DEPOIMENTO
 .container-depoimento {
+  height: 100%;
+  padding-bottom: 70px;
+  position: relative;
   background: $branco;
   box-shadow: 0px 20px 20px rgba(49, 48, 108, 0.2);
   border-radius: 20px;
@@ -262,5 +280,86 @@ body {
     top: -40px;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+.footer-depoimento {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+// SWIPER CURSOS
+.swiper-cursos {
+  position: relative;
+  overflow: visible;
+  .button-next {
+    transform: translateY(39px);
+  }
+  .swiper-wrapper > *::after {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 200px;
+
+    background: linear-gradient(270deg, #31306c 9.9%, rgba(49, 48, 108, 0) 85.28%);
+
+    position: absolute;
+    top: 0;
+    right: -75px;
+    z-index: 9;
+  }
+}
+
+.control-swiper-cursos {
+  position: absolute;
+  width: calc(100% + 50px);
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+
+  z-index: 10;
+}
+
+// SWIPER DEPOIMENTOS
+.swiper-depoimentos {
+  position: relative;
+  box-sizing: content-box;
+  padding: 4rem 0;
+}
+
+.swiper-pagination-depoimento {
+  width: fit-content !important;
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.swiper {
+  overflow: visible;
+}
+
+.control-swiper-depoimentos {
+  position: absolute;
+
+  top: -102px;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+
+  .swiper-pagination-bullet {
+    border-color: #31306c;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #31306c;
   }
 }

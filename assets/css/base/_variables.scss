@@ -10,7 +10,7 @@ $azul: #31306c;
 $cinza: #565656;
 $roxo: #643a9b;
 
-$fundo-claro: #F1F1F1;
+$fundo-claro: #f1f1f1;
 
 $gradient: linear-gradient(90deg, #31306c -0.7%, #643a9b 47.21%, #f07f3c 98.21%);
 
@@ -45,31 +45,31 @@ $z-index: (
 
 // BREAKPOINTS
 @mixin xs {
-  @media (min-width: 576px) {
+  @media (max-width: 576px) {
     @content;
   }
 }
 
 @mixin md {
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     @content;
   }
 }
 
 @mixin lg {
-  @media (min-width: 992px) {
+  @media (max-width: 992px) {
     @content;
   }
 }
 
 @mixin xl {
-  @media (min-width: 1200px) {
+  @media (max-width: 1200px) {
     @content;
   }
 }
 
 @mixin xxl {
-  @media (min-width: 1400px) {
+  @media (min-width: 1200px) {
     @content;
   }
 }

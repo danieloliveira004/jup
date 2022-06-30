@@ -94,6 +94,14 @@
   width: fit-content;
   border-radius: 100px;
   padding: toRem(12) toRem(28);
+
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    &.background-laranja {
+      background: $laranja-hover;
+    }
+  }
 }
 
 .button-circle {
@@ -118,8 +126,4 @@
 // ANIMATIONS
 .invisible {
   opacity: 0;
-
-  @include md {
-    opacity: 1;
-  }
 }

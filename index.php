@@ -104,17 +104,22 @@ include_once 'dados.php';
 
           </div>
           <div class="button-prev">
-            <img src="assets/images/icon/seta-swiper.svg" alt="Proximo Slide">
+            <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3L12 12L3 21" stroke="" stroke-width="3" stroke-linecap="square" />
+            </svg>
+
           </div>
           <div class="button-next">
-            <img src="assets/images/icon/seta-swiper.svg" alt="Proximo Slide">
+            <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3L12 12L3 21" stroke="" stroke-width="3" stroke-linecap="square" />
+            </svg>
           </div>
         </div>
       </div>
     </div>
     <!-- MENU -->
     <div class="menu container-fluid max-width1920">
-      <div class="space-between pt-4">
+      <div class="space-between pt-4 gap-3">
         <!-- LOGO -->
         <div class="logo">
           <a href="#">
@@ -133,7 +138,12 @@ include_once 'dados.php';
               Login | Criar conta
             </a>
             <button id="button-burguer" class="button alignCenter gap-2 text-laranja background-branco font18 fw600">
-              <img src="assets/images/icon/burguer.svg" alt="Burguer Menu">
+              <svg width="23" height="17" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="23" height="3" fill="#F07F3C" />
+                <rect y="7" width="23" height="3" fill="#F07F3C" />
+                <rect y="14" width="23" height="3" fill="#F07F3C" />
+              </svg>
+
               MENU
             </button>
           </div>
@@ -183,7 +193,9 @@ include_once 'dados.php';
           foreach ($categorias as $categoria) :
           ?>
             <div class="container-categoria text-branco">
-              <img class="img-categoria" src="assets/images/<?= $categoria['image'] ?>" alt="<?= $cateoria['titulo'] ?>">
+              <div class="container-categoria-img">
+                <img class="img-categoria" src="assets/images/<?= $categoria['image'] ?>" alt="<?= $cateoria['titulo'] ?>">
+              </div>
               <div class="conteudo-categoria text-center">
                 <h4 class="font29 fw800 "><?= $categoria['titulo'] ?></h4>
                 <p class="m-0"><?= $categoria['paragrafo'] ?></p>
@@ -200,7 +212,7 @@ include_once 'dados.php';
       </div>
       <!-- PRINCIPAIS CURSOS -->
       <div class="container-fluid max-width1920">
-        <div class="text-branco text-center max-width924 mt-5 pt-5 pb-3">
+        <div class="text-branco text-center max-width924 mt-md-5 pt-5 pb-3">
           <h3 class="font35 fw700 uppercase pt-3">Principais Cursos</h3>
           <p class="font-roboto font24 fw500">Cursos estruturados para alavancar sua carreira</p>
         </div>
@@ -211,24 +223,26 @@ include_once 'dados.php';
               <div class="swiper-slide">
                 <!-- CARD -->
                 <div class="container-cursos">
-                  <!-- IMG CARD -->
-                  <img class="img-cursos" src="assets/images/<?= $curso['image'] ?>" alt="Capa do Curso">
-                  <?php if ($curso['vagas-ilimitadas']) : ?>
-                    <!-- IMG VAGAS LIMITADAS -->
-                    <div class="vagas-ilimitadas">
-                      <img src="assets/images/vagas-limitadas.svg" alt="Vagas limitadas">
+                  <div class="container-cursos-img">
+                    <!-- IMG CARD -->
+                    <img class="img-cursos" src="assets/images/<?= $curso['image'] ?>" alt="Capa do Curso">
+                    <?php if ($curso['vagas-ilimitadas']) : ?>
+                      <!-- IMG VAGAS LIMITADAS -->
+                      <div class="vagas-ilimitadas">
+                        <img src="assets/images/vagas-limitadas.svg" alt="Vagas limitadas">
+                      </div>
+                    <?php endif; ?>
+                    <!-- CURSO ONLINE -->
+                    <div class="curso-online">
+                      <span class="font12 fw800 text-azul background-branco">
+                        <?php
+                        if ($curso['curso-online'])
+                          echo 'CURSO ONLINE';
+                        else
+                          echo 'CURSO PRESENCIAL';
+                        ?>
+                      </span>
                     </div>
-                  <?php endif; ?>
-                  <!-- CURSO ONLINE -->
-                  <div class="curso-online">
-                    <span class="font12 fw800 text-azul background-branco">
-                      <?php
-                      if ($curso['curso-online'])
-                        echo 'CURSO ONLINE';
-                      else
-                        echo 'CURSO PRESENCIAL';
-                      ?>
-                    </span>
                   </div>
                   <!-- DESCRIÇÃO -->
                   <div class="container-cursos-descricao text-branco">
@@ -247,14 +261,14 @@ include_once 'dados.php';
                       </span>
                     </div>
                     <!-- ADICIONAL -->
-                    <div class="d-flex gap-3">
+                    <div class="d-block d-md-flex  gap-3">
                       <div class="font17 fw500">
                         <!-- CERTIFICADO -->
                         <span class="alignCenter gap-1 pb-2">
                           <img src="assets/images/icon/icon-certificado.svg" alt="Icon Cerficiado">
                           <span>Certificado <?= $curso['certificado'] ?>h</span>
                         </span>
-                        <span class="font17 fw400 alignCenter gap-1">
+                        <span class="font17 fw400 alignCenter gap-1 pb-2">
                           <img src="assets/images/icon/icon-valor.svg" alt="Icon Valor">
                           <span>R$ <strong class="fw900"><?= $curso['preco'] ?></strong></span>
                         </span>
@@ -287,10 +301,42 @@ include_once 'dados.php';
           </div>
           <div class="control-swiper-cursos space-between">
             <div class="button-next">
-              <img src="assets/images/icon/seta-cursos.svg" alt="Próximo">
+              <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d_2_213)">
+                  <circle cx="44" cy="24" r="23" fill="" stroke="" stroke-width="2" />
+                  <path d="M48 16L40 24L48 32" stroke="#31306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <filter id="filter0_d_2_213" x="0" y="0" width="88" height="88" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                    <feOffset dy="20" />
+                    <feGaussianBlur stdDeviation="10" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.0850391 0 0 0 0 0.0820312 0 0 0 0 0.2625 0 0 0 0.2 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_213" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_213" result="shape" />
+                  </filter>
+                </defs>
+              </svg>
             </div>
             <div class="button-prev">
-              <img src="assets/images/icon/seta-cursos.svg" alt="Anterior">
+              <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d_2_213)">
+                  <circle cx="44" cy="24" r="23" fill="" stroke="" stroke-width="2" />
+                  <path d="M48 16L40 24L48 32" stroke="#31306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <filter id="filter0_d_2_213" x="0" y="0" width="88" height="88" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                    <feOffset dy="20" />
+                    <feGaussianBlur stdDeviation="10" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.0850391 0 0 0 0 0.0820312 0 0 0 0 0.2625 0 0 0 0.2 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_213" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_213" result="shape" />
+                  </filter>
+                </defs>
+              </svg>
             </div>
           </div>
         </div>
@@ -306,22 +352,22 @@ include_once 'dados.php';
   <!-- CONHEÇA JUSPSI -->
   <section class="py-5">
     <div class="container">
-      <div class="row text-cinza py-md-5">
-        <div class="col-6 img-conheca p-0 d-none d-md-block">
+      <div class="row text-cinza py-md-5 ">
+        <div class="col-6 img-conheca p-0 d-none d-lg-block">
           <img src="assets/images/transforme-sua-vida.png" alt="Transform sua Vida">
         </div>
-        <div class="col-md-6 p-5">
+        <div class="col-lg-6 p-2 p-md-5 text-center text-md-start">
           <div class="linha pb-5">
             <h3 class="font35 fw700 uppercase">Transforme sua vida ATRAVÉS dos cursos juspsi</h3>
             <!-- LINHA -->
           </div>
           <div class="letras-roxas font16 fw700 text-roxo d-flex gap-4 pb-5">
-            <span class="alignCenter gap-2 font-roboto">
+            <span class="alignCenter gap-2 font-roboto flex-column flex-md-row">
               <img src="assets/images/icon/icon-relogio.svg" alt="Icon Relogio">
               APRENDA OS CURSOS NO SEU TEMPO
             </span>
 
-            <span class="alignCenter gap-2 font-roboto">
+            <span class="alignCenter gap-2 font-roboto flex-column flex-md-row">
               <img src="assets/images/icon/icon-folha.png" alt="Icon Folha">
               CERTIFICADOS VÁLIDOS EM TODO O BRASIL
             </span>
@@ -329,7 +375,7 @@ include_once 'dados.php';
 
           <p class="font-roboto font18 fw500 line21 pb-4">Aprenda tudo que não te ensinaram na faculdade, passo a passo na prática e alcance os melhores resultados profissionais</p>
 
-          <a href="#" class="button button-shadow font14 fw800 text-branco background-laranja px-5">CONHEÇA A JUSPSI</a>
+          <a href="#" class="button button-shadow font14 fw800 text-branco background-laranja px-5 mx-auto mx-md-0">CONHEÇA A JUSPSI</a>
         </div>
       </div>
     </div>
@@ -410,10 +456,16 @@ include_once 'dados.php';
             <div class="swiper-pagination-depoimento"></div>
 
             <div class="button-prev">
-              <img src="assets/images/icon/seta-swiper.svg" alt="Proximo Slide">
+              <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3L12 12L3 21" stroke="" stroke-width="3" stroke-linecap="square" />
+              </svg>
+
             </div>
             <div class="button-next">
-              <img src="assets/images/icon/seta-swiper.svg" alt="Proximo Slide">
+              <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3L12 12L3 21" stroke="" stroke-width="3" stroke-linecap="square" />
+              </svg>
+
             </div>
 
           </div>
@@ -431,105 +483,137 @@ include_once 'dados.php';
   <!-- FIM DEPOIMENTOS -->
 
   <!-- INICIO FOOTER -->
-  <footer class="footer background-azul pt-5">
+  <footer class="footer background-azul pt-md-5">
     <div class="container">
-      <div class="space-between align-items-start container-flex-footer pt-5">
+      <div class="container-footer d-block d-md-flex space-between align-items-start container-flex-footer pt-3 pt-md-5">
         <!-- PART 1 -->
         <div>
-          <h5>INSTITUCIONAL</h5>
-          <ul>
-            <li><a href=" #">A empresa</a></li>
-            <li><a href="#">Novidades</a></li>
-            <li><a href="#">Materiais gratuitos</a></li>
-            <li><a href="#">Depoimentos</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-          <a href="#" class="button background-laranja text-branco alignCenter gap-2 mt-4">
+          <div class="container-h5">
+            <h5>INSTITUCIONAL</h5>
+            <div>
+              <ul>
+                <li><a href=" #">A empresa</a></li>
+                <li><a href="#">Novidades</a></li>
+                <li><a href="#">Materiais gratuitos</a></li>
+                <li><a href="#">Depoimentos</a></li>
+                <li><a href="#">Contato</a></li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="button background-laranja text-branco alignCenter gap-2 mt-4 d-none d-md-block whitespace-nowrap">
             <img src="assets/images/icon/user.svg" alt="User">
             Login | Criar conta
           </a>
         </div>
         <!-- PART 2 -->
         <div>
-          <h5>Cursos preparatórios</h5>
-          <ul>
-            <li><a href="#">Presenciais</a></li>
-            <li><a href="#">Telepresenciais</a></li>
-            <li><a href="#">Simulados online</a></li>
-          </ul>
+          <div class="container-h5">
+            <div>
+              <h5>Cursos preparatórios</h5>
+              <ul>
+                <li><a href="#">Presenciais</a></li>
+                <li><a href="#">Telepresenciais</a></li>
+                <li><a href="#">Simulados online</a></li>
+              </ul>
+            </div>
+          </div>
 
-          <h5 class="mt-5">Coaching e Inteligência emocional</h5>
-          <ul>
-            <li><a href="#">Coaching para concursos publicos</a></li>
-            <li><a href="#">Coaching de carreira</a></li>
-            <li><a href="#">Inteligencia emocional</a></li>
-          </ul>
+
+          <div class="container-h5">
+            <h5 class="mt-5">Coaching e Inteligência emocional</h5>
+            <div>
+              <ul>
+                <li><a href="#">Coaching para concursos publicos</a></li>
+                <li><a href="#">Coaching de carreira</a></li>
+                <li><a href="#">Inteligencia emocional</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
         <!-- PART 3 -->
-        <div>
+        <div class="container-h5">
           <h5>Para sua empresa</h5>
-          <h6>EMPRESAS PÚBLICAS</h6>
-          <ul>
-            <li><a href="#">Cursos e treinamentos</a></li>
-            <li><a href="#">Assessoria tecnica</a></li>
-          </ul>
+          <div>
+            <h6>EMPRESAS PÚBLICAS</h6>
+            <ul>
+              <li><a href="#">Cursos e treinamentos</a></li>
+              <li><a href="#">Assessoria tecnica</a></li>
+            </ul>
 
-          <h6>EMPRESAS PRIVADAS</h6>
-          <ul>
-            <li><a href="#">Cursos e treinamentos</a></li>
-            <li><a href="#">Assessoria tecnica</a></li>
-          </ul>
+            <h6>EMPRESAS PRIVADAS</h6>
+            <ul>
+              <li><a href="#">Cursos e treinamentos</a></li>
+              <li><a href="#">Assessoria tecnica</a></li>
+            </ul>
+          </div>
         </div>
         <!-- PART 4 -->
-        <div>
-          <h5>Cursos</h5>
+        <div class="sub-h6 hide">
+          <div class="container-h5">
 
-          <h6>DIREITO</h6>
-          <ul>
-            <li><a href="#">Clubes de assinatura</a></li>
-            <li><a href="#">Cursos presenciais</a></li>
-            <li><a href="#">Cursos online</a></li>
-          </ul>
+            <h5>Cursos</h5>
+            <div>
+              <h6>DIREITO</h6>
+              <ul>
+                <li><a href="#">Clubes de assinatura</a></li>
+                <li><a href="#">Cursos presenciais</a></li>
+                <li><a href="#">Cursos online</a></li>
+              </ul>
 
-          <h6>PSICOLOGIA</h6>
-          <ul>
-            <li><a href="#">Clubes de assinatura</a></li>
-            <li><a href="#">Cursos presenciais</a></li>
-            <li><a href="#">Cursos online</a></li>
-          </ul>
+              <h6>PSICOLOGIA</h6>
+              <ul>
+                <li><a href="#">Clubes de assinatura</a></li>
+                <li><a href="#">Cursos presenciais</a></li>
+                <li><a href="#">Cursos online</a></li>
+              </ul>
 
-          <h6>SERVIÇO SOCIAL</h6>
-          <ul>
-            <li><a href="#">Clubes de assinatura</a></li>
-            <li><a href="#">Cursos presenciais</a></li>
-            <li><a href="#">Cursos online</a></li>
-          </ul>
+              <h6>SERVIÇO SOCIAL</h6>
+              <ul>
+                <li><a href="#">Clubes de assinatura</a></li>
+                <li><a href="#">Cursos presenciais</a></li>
+                <li><a href="#">Cursos online</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="centerd  d-md-none">
+          <a href="#" class="button background-laranja text-branco alignCenter gap-2 my-3 ">
+            <img src="assets/images/icon/user.svg" alt="User">
+            Login | Criar conta
+          </a>
         </div>
       </div>
 
       <!-- CERTIFICAÇÕES -->
       <div class="certificacoes p-4 mt-5">
-        <div class="text-center">
+        <div class="container-certificacao text-center">
           <h5 class="font20 fw700 text-cinza pb-2 pt-4">CERTIFICAÇÕES</h5>
-          <img src="assets/images/certificacoes.png" alt="Certificações">
+          <div class="centerd gap-3 flex-column flex-lg-row">
+            <img src="assets/images/certificacao-great.png" alt="Certificação Great">
+            <img src="assets/images/certificacao-abf.png" alt="Certificação ABF">
+            <img src="assets/images/certificacao-amazon.png" alt="Certificação Amazon">
+            <img src="assets/images/certificacao-google.png" alt="Certificação Google">
+          </div>
         </div>
-        <div class="space-between pt-5">
+        <div class="d-block d-xxl-flex space-between pt-5">
           <div class="alignCenter gap-2">
             <img src="assets/images/icon/icon-web.svg" alt="Logo">
-            <p class="font-roboto font13 fw400 text-depoimento mb-1">2021 © Todos os direitos reservados - JUSPSI. Seja a sua melhor versão profissional | Criação</p>
-            <img src="assets/images/oxigen-logo.svg" alt="Logo OxigenWeb">
+            <p class="font-roboto font13 fw400 text-depoimento mb-1">2021 © Todos os direitos reservados - JUSPSI. Seja a sua melhor versão profissional | Criação
+              <span><img src="assets/images/oxigen-logo.svg" alt="Logo OxigenWeb"></span>
+            </p>
+
           </div>
-          <div class="alignCenter font16 fw500 gap-3">
+          <div class="font16 fw500 gap-3 centerd flex-column pt-3 pt-md-0 flex-md-row politica-footer">
             <a href="#" class="font-roboto text-roxo">Política de privacidade</a>
-            <a href="#" class="font-roboto text-roxo">Política de cookies</a>
+            <a href="#" class="font-roboto text-roxo ">Política de cookies</a>
           </div>
         </div>
       </div>
     </div>
     <!-- FINAL -->
-    <div class="footer-app gradient py-3 centerd gap-5 mt-5">
+    <div class="footer-app gradient py-3 centerd gap-3 gap-md-5 mt-5">
       <!-- WHATSAPP -->
-      <div class="whatsapp-footer">
+      <div class="whatsapp-footer d-none d-md-block">
         <a href="#">
           <img src="assets/images/icon/icon-whatsapp.svg" alt="Icon Whatsapp">
         </a>
@@ -576,20 +660,30 @@ include_once 'dados.php';
       },
       pagination: {
         el: ".pagination-header",
+        clickable: true,
       },
-      mousewheel: true,
-      keyboard: true,
     });
 
     // CURSOS
     var swiper = new Swiper(".swiper-cursos", {
-      slidesPerView: 1.5,
+      slidesPerView: 1.2,
       spaceBetween: 15,
       centeredSlides: false,
       navigation: {
         nextEl: ".button-prev ",
         prevEl: ".button-next",
       },
+      breakpoints: {
+        2000: {
+          slidesPerView: 4
+        },
+        768: {
+          slidesPerView: 3.5
+        },
+        576: {
+          slidesPerView: 2.5,
+        }
+      }
     });
 
     // DEPOIMENTOS

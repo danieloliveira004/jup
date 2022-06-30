@@ -31,7 +31,7 @@ body {
 @import "header";
 @import "footer";
 
-// CONTAINER CATEGORIA
+//  CATEGORIA
 .container-grid-categoria {
   position: relative;
   display: grid;
@@ -39,11 +39,72 @@ body {
 
   border-radius: 20px;
   overflow: hidden;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @include xs {
+    grid-template-columns: 1fr;
+  }
 }
 
 .container-categoria {
   position: relative;
   height: 538px;
+
+  @include md {
+    height: fit-content;
+  }
+
+  &.hide {
+    p {
+      opacity: 1;
+      padding-top: 24px;
+
+      max-height: 400px;
+    }
+
+    .container-categoria-img {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.container-categoria-img {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+
+  img {
+    transition: all 0.6s ease-in-out;
+  }
+
+  @include md {
+    border-radius: 20px;
+    height: 180px;
+
+    &::before {
+      content: "";
+      background: url("assets/images/icon/icon-mais.svg") no-repeat center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid $laranja;
+      width: 62px;
+      height: 62px;
+      z-index: 12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      padding: toRem(12);
+    }
+  }
 
   &::after {
     content: "";
@@ -54,7 +115,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-
     background: linear-gradient(to top, rgba(22, 21, 67, 0.8) 9.9%, rgba(22, 21, 67, 0) 85.28%);
   }
 }
@@ -71,6 +131,19 @@ body {
   align-items: center;
   flex-direction: column;
 
+  @include md {
+    position: relative;
+    bottom: toRem(-10);
+
+    button {
+      display: none;
+    }
+
+    h4 {
+      font-size: toRem(20);
+    }
+  }
+
   h4 {
     max-width: 247px;
     margin-bottom: 24px;
@@ -85,13 +158,6 @@ body {
     transition: all 0.6s ease-in-out;
     padding: 0 toRem(34);
     opacity: 0;
-
-    &.hide {
-      opacity: 1;
-      padding-top: 24px;
-
-      max-height: 400px;
-    }
 
     &::after {
       content: "";
@@ -128,19 +194,20 @@ body {
   position: relative;
   height: 490px;
   border-radius: 20px;
-  overflow: hidden;
 
-  &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(360deg, rgba(22, 21, 67, 0.9) 0%, rgba(22, 21, 67, 0) 100%);
+  cursor: pointer;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
+  .img-cursos {
+    transition: all 0.5s ease-in-out;
+  }
+  &:hover {
+    .img-cursos {
+      transform: scale(1.2);
+    }
+  }
+
+  @include md {
+    height: fit-content;
   }
 }
 
@@ -169,6 +236,37 @@ body {
     border-radius: 100px;
     line-height: toRem(25);
   }
+
+  @include md {
+    right: auto;
+    top: auto;
+    bottom: toRem(15);
+    left: toRem(15);
+  }
+}
+
+.container-cursos-img {
+  height: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, rgba(22, 21, 67, 0.9) 0%, rgba(22, 21, 67, 0) 100%);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  @include md {
+    height: 290px;
+  }
 }
 
 .container-cursos-descricao {
@@ -177,6 +275,11 @@ body {
   bottom: toRem(25);
   right: toRem(25);
   left: toRem(25);
+
+  @include md {
+    position: relative;
+    bottom: toRem(-20);
+  }
 }
 
 .img-cursos {
@@ -236,6 +339,10 @@ body {
     position: absolute;
     top: 8%;
     left: -100px;
+
+    @include md {
+      display: none;
+    }
   }
 }
 
@@ -324,6 +431,32 @@ body {
   transform: translateY(-50%);
 
   z-index: 10;
+
+  @include md {
+    display: none;
+  }
+
+  @media (min-width: 2000px) {
+    display: none;
+  }
+
+  .button-next,
+  .button-prev {
+    svg {
+      circle {
+        // transition: all 0.5s ease-in-out;
+        stroke: $branco;
+        fill: $branco;
+      }
+
+      &:hover {
+        circle {
+          stroke: $laranja-hover;
+          fill: $laranja-hover;
+        }
+      }
+    }
+  }
 }
 
 // SWIPER DEPOIMENTOS
@@ -331,6 +464,10 @@ body {
   position: relative;
   box-sizing: content-box;
   padding: 4rem 0;
+
+  .swiper-wrapper > *::after {
+    display: none;
+  }
 }
 
 .swiper-pagination-depoimento {
@@ -357,9 +494,25 @@ body {
 
   .swiper-pagination-bullet {
     border-color: #31306c;
+    &:hover {
+      border-color: $laranja-hover;
+    }
   }
 
   .swiper-pagination-bullet-active {
     background: #31306c;
+  }
+
+  .button-next,
+  .button-prev {
+    svg {
+      stroke: #31306c;
+    }
+
+    &:hover {
+      svg {
+        stroke: $laranja-hover;
+      }
+    }
   }
 }

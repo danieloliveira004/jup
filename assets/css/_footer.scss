@@ -24,6 +24,106 @@
     line-height: 25px;
     font-size: toRem(16);
     font-weight: 400;
+    transition: all 0.2s ease-in;
+    border-bottom: 2px solid transparent;
+    &:hover {
+      border-color: $laranja-hover;
+    }
+  }
+
+  @include md {
+    .container-footer {
+      > div {
+        border-bottom: 1px solid $roxo;
+      }
+    }
+
+    h6 {
+      font-size: toRem(14);
+    }
+
+    ul {
+      padding-left: toRem(65);
+      margin: 0;
+
+      height: fit-content;
+
+      a {
+        font-size: toRem(14);
+      }
+
+      li:last-of-type {
+        padding-bottom: 1rem;
+      }
+    }
+
+    .sub-h6 {
+    }
+
+    .container-h5 {
+      cursor: pointer;
+
+      h5 {
+        margin: 0 !important;
+        padding-left: toRem(65);
+        padding-bottom: toRem(24);
+        padding-top: toRem(24);
+        position: relative;
+        font-size: toRem(14);
+
+        &::after {
+          content: "";
+          display: block;
+          width: 48px;
+          height: 48px;
+          background: url("assets/images/icon/seta-footer.svg");
+
+          position: absolute;
+          top: 50%;
+          left: 0;
+
+          transition: all 0.6s ease-in-out;
+
+          transform: translateY(-50%) rotate(-180deg);
+        }
+      }
+
+      > div {
+        height: fit-content;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.6s ease-in-out;
+      }
+
+      h6 {
+        padding-left: toRem(65);
+        & ~ ul {
+          padding-left: toRem(75);
+        }
+      }
+
+      &.hide {
+        h5::after {
+          transform: rotate(0) translateY(-20px);
+        }
+
+        ul {
+          max-height: 300px;
+          opacity: 1;
+        }
+
+        h6 {
+          display: block;
+          transition-delay: 5s;
+        }
+
+        > div {
+          opacity: 1;
+          max-height: 500px;
+        }
+      }
+    }
   }
 }
 
@@ -41,10 +141,73 @@
 
 .footer-app {
   position: relative;
+  img {
+    transition: all 0.2s ease-in-out;
+  }
+  > a:hover img {
+    opacity: 0.6;
+  }
 }
 
 .whatsapp-footer {
   position: absolute;
   top: -32px;
   left: 32px;
+
+  &:hover {
+    img {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.container-certificacao {
+  @include md {
+    border: 2px solid #c4c4c4;
+    border-radius: 9px;
+
+    > div {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.6s ease-in-out;
+
+      img:last-of-type {
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    &.hide {
+      > div {
+        height: fit-content;
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      h5::after {
+        transform: rotate(-180deg);
+      }
+    }
+
+    h5 {
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 16px;
+        background: url("assets/images/icon/seta-certificacao.svg") no-repeat center;
+        padding: 1rem 0;
+        transition: all 0.6s ease-in-out;
+      }
+    }
+  }
+}
+
+.politica-footer {
+  a {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: $laranja-hover;
+    }
+  }
 }
